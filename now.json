@@ -1,0 +1,5 @@
+{
+  "env": {
+    "backend_address": "@backend_address"
+  }
+}
