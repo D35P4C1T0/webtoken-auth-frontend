@@ -72,6 +72,7 @@ class Auth {
         console.log("RESPONSE RECEIVED", response)
         if (response.statusText === "OK") {
           this.authenticated = true
+          this.username = content.username
           cb()
         }
       })
