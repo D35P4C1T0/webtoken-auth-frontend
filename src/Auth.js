@@ -4,6 +4,7 @@ class Auth {
   constructor() {
     this.authenticated = false
     this.TOKEN = ""
+    this.username = ""
   }
 
   login(credentials, cb) {
@@ -37,6 +38,7 @@ class Auth {
           console.log(content.username, "is authenticated and has logged in")
           this.authenticated = true
           this.TOKEN = response.data.token
+          this.username = content.username
           cb()
         }
       })
