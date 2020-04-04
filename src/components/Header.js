@@ -1,21 +1,20 @@
 import React from "react"
 import { Jumbotron as Jumbo, Container } from "react-bootstrap"
 import styled from "styled-components"
-import headerImage from "../assets/bg.jpg"
+import headerImage from "../assets/pattern.png"
 
 const Styles = styled.div`
   .jumbo {
-    background: url(${headerImage}) no-repeat fixed bottom;
-    background-size: cover;
+    background: url(${headerImage}) repeat fixed bottom;
+    // background-size: cover;
     color: #efefef;
-    height: 12em;
     position: relative;
     z-index: -2;
   }
 
   .overlay {
     background-color: #000;
-    opacity: 0.75;
+    opacity: 0.66;
     position: absolute;
     top: 0;
     left: 0;
@@ -32,7 +31,8 @@ export const Header = () => (
       <Container>
         <h1>Welcome</h1>
         <p>
-          Learn to code by stealing snippets <br></br> and stock images
+          Learn to code by stealing
+          <br></br> fancy code snippets 💻
         </p>
       </Container>
     </Jumbo>

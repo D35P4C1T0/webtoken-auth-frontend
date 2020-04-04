@@ -3,7 +3,7 @@ import Auth from "../Auth"
 
 export const Home = () => (
   <div>
-    <h2>Hello {Auth.username}</h2>
+    <h2>Hello {Auth.username} 🍬</h2>
     <p>You're authenticated</p> <br></br>
     <p>
       {" "}

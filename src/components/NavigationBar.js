@@ -6,7 +6,7 @@ import styled from "styled-components"
 
 const Styles = styled.div`
   .navbar {
-    background-color: #222;
+    background-color: #333;
   }
 
   a,
@@ -15,15 +15,15 @@ const Styles = styled.div`
     color: white;
 
     &:hover {
-      color: black;
+      color: teal;
     }
   }
 `
 
 export const NavigationBar = () => (
   <Styles>
-    <Navbar expand="lg">
-      <Navbar.Brand href="/">D35P4C1T0</Navbar.Brand>
+    <Navbar expand="lg" class="bg-dark">
+      <Navbar.Brand href="/">Material Login</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ml-auto">
@@ -34,7 +34,7 @@ export const NavigationBar = () => (
           </Nav.Item>
           <Nav.Item>
             <Nav.Link>
-              <Link to="/contact">Contact</Link>
+              <Link to="/contact">Contacts</Link>
             </Nav.Link>
           </Nav.Item>
           <Nav.Item>

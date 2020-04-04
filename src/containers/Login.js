@@ -36,7 +36,7 @@ export default function Login(props) {
             autoFocus
             type="username"
             value={username}
-            onChange={e => setUsername(e.target.value)}
+            onChange={(e) => setUsername(e.target.value)}
           />
         </FormGroup>
         {/* <FormGroup controlId="email" bsSize="large">
@@ -52,16 +52,22 @@ export default function Login(props) {
           <FormLabel>Password</FormLabel>
           <FormControl
             value={password}
-            onChange={e => setPassword(e.target.value)}
+            onChange={(e) => setPassword(e.target.value)}
             type="password"
           />
         </FormGroup>
         <FormGroup>
-          <Button block disabled={!validateForm()} type="submit">
+          <Button
+            block
+            disabled={!validateForm()}
+            type="submit"
+            variant="secondary"
+          >
             Login
           </Button>
           <Button
             block
+            variant="secondary"
             onClick={() => {
               props.history.push("/signup")
             }}
