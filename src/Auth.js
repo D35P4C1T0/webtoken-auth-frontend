@@ -7,7 +7,7 @@ class Auth {
     this.username = ""
   }
 
-  login(credentials, cb) {
+  login(credentials, cb, somethingWrong) {
     let content = {
       username: credentials.username,
       password: credentials.password
@@ -21,16 +21,13 @@ class Auth {
 
     // let url = process.env.backend_address + "/users/" + credentials.username
     let url =
-      "https://webtoken-mockup--d35p4c1t0.repl.co" +
-      "/users/" +
-      credentials.username
+      "https://webtoken-mockup--d35p4c1t0.repl.co/users/" + credentials.username
     // console.log(url)
 
     axios({
       method: "post",
       url: url,
-      data: content,
-      config: { headers: {} }
+      data: content
     })
       .then(response => {
         console.log("RESPONSE RECEIVED", response)
@@ -40,28 +37,22 @@ class Auth {
           this.TOKEN = response.data.token
           this.username = content.username
           cb()
+        } else {
+          somethingWrong()
         }
       })
 
       .catch(err => console.log("AXIOS ERROR", err))
   }
 
-  signup(credentials, cb) {
+  signup(credentials, cb, somethingWrong) {
     let content = {
       username: credentials.username,
       password: credentials.password
     }
 
-    // let url = 'http://localhost:3000/users'
-
-    // if (!process.env.backend_address) {
-    //   console.log("no backend address")
-    // }
-
     // let url = process.env.backend_address + "/users"
-    let url = "https://webtoken-mockup--d35p4c1t0.repl.co" + "/users"
-    // console.log(url)
-
+    let url = "https://webtoken-mockup--d35p4c1t0.repl.co/users"
     axios({
       method: "post",
       url: url,
@@ -70,10 +61,12 @@ class Auth {
     })
       .then(response => {
         console.log("RESPONSE RECEIVED", response)
-        if (response.statusText === "OK") {
+        if (response.data.hashedPassword) {
           this.authenticated = true
           this.username = content.username
           cb()
+        } else {
+          somethingWrong()
         }
       })
       .catch(err => console.log("AXIOS ERROR", err))

@@ -15,9 +15,16 @@ export default function Signup(props) {
   function handleSubmit(event) {
     event.preventDefault()
     let credentials = { username: username, password: password }
-    auth.signup(credentials, () => {
-      props.history.push("/home")
-    })
+    auth.signup(
+      credentials,
+      () => {
+        props.history.push("/home")
+      },
+      () => {
+        console.log("Wrong credentials")
+        alert("Credenziali errate, prego riprovare")
+      }
+    )
   }
 
   return (
